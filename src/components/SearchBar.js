@@ -1,17 +1,16 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
 
 class SearchBar extends Component {
-  state = { term: "" }
+  state = { term: "" };
 
   onInputChange = (evt) => {
-    this.setState({ [evt.target.name]: evt.target.value })
-  }
+    this.setState({ [evt.target.name]: evt.target.value });
+  };
 
   onFormSubmit = (evt) => {
-    evt.preventDefault()
-    this.props.onSearch(this.state.term)
-    this.setState({ term: "" })
-  }
+    evt.preventDefault();
+    this.props.onSearch(this.state.term);
+  };
 
   render() {
     return (
@@ -30,8 +29,8 @@ class SearchBar extends Component {
           </div>
         </form>
       </div>
-    )
+    );
   }
 }
 
-export default SearchBar
+export default SearchBar;

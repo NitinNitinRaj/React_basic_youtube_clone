@@ -1,24 +1,24 @@
-import React, { Component } from "react"
+import React from "react";
+import "../styles/VideoItem.css";
 
-class VideoItem extends Component {
-  render() {
-    return (
-      <div className="item">
-        <div className="image">
-          <img src={this.props.thumbnail} alt={this.props.title} />
-        </div>
-        <div className="content">
-          <a className="header">{this.props.title}</a>
-          <div className="meta">
-            <span>{this.props.channel}</span>
-          </div>
-          <div class="description">
-            <p>{this.props.desc}</p>
-          </div>
-        </div>
+const VideoItem = ({ video, onVideoSelect }) => {
+  return (
+    <div
+      className="video-item item"
+      onClick={() => {
+        onVideoSelect(video);
+      }}
+    >
+      <img
+        className="ui image"
+        src={video.snippet.thumbnails.default.url}
+        alt={video.snippet.title}
+      />
+      <div className="content">
+        <div className="header">{video.snippet.title}</div>
       </div>
-    )
-  }
-}
+    </div>
+  );
+};
 
-export default VideoItem
+export default VideoItem;
